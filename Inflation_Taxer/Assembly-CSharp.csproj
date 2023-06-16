@@ -60,6 +60,7 @@
     <Compile Include="Assets\emotions_script.cs" />
     <Compile Include="Assets\LogicMenagerScript.cs" />
     <Compile Include="Assets\inflation_symbol.cs" />
+    <Compile Include="Assets\DetectorScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
