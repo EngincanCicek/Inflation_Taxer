@@ -19,9 +19,9 @@ public class DetectorScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null)
+        if (collision.gameObject.layer==3)
         {
-            menagerScript.incraseScore();
+            menagerScript.incraseScore(1);
         }
     }
 }

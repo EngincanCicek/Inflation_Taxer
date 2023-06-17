@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class LogicMenagerScript : MonoBehaviour
@@ -12,10 +13,17 @@ public class LogicMenagerScript : MonoBehaviour
 
 
     [ContextMenu("add score")]
-    public void incraseScore()
+    public void incraseScore(int i)
     {
-        playerScore++;
+        playerScore+= i;
         scoreText.text=playerScore.ToString();
     }
+
+    public void restartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+    }
+
 
 }
