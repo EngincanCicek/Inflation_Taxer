@@ -942,7 +942,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627502753}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: -0.49, z: 1}
+  m_LocalPosition: {x: -10, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1000,6 +1000,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 1627502756}
   jumpScale: 7
+  menagerScript: {fileID: 0}
+  playerAlive: 1
 --- !u!1 &1724973762
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,6 +1113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScore: 0
   scoreText: {fileID: 1724973764}
+  gameOverScreen: {fileID: 179082931}
 --- !u!4 &2070138904
 Transform:
   m_ObjectHideFlags: 0

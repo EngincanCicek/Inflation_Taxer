@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Analytics;
 
 public class LogicMenagerScript : MonoBehaviour
 {
     public int playerScore = 0;
     public Text scoreText;
+    public GameObject gameOverScreen;
     // Start is called before the first frame updateg 
 
 
@@ -17,6 +18,7 @@ public class LogicMenagerScript : MonoBehaviour
     {
         playerScore+= i;
         scoreText.text=playerScore.ToString();
+
     }
 
     public void restartGame()
@@ -25,5 +27,11 @@ public class LogicMenagerScript : MonoBehaviour
 
     }
 
+    [ContextMenu("gameOVer")]
+
+    public void gameOver()
+    {
+        gameOverScreen.SetActive(true);
+    }
 
 }
