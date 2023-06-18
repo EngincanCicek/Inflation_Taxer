@@ -8,7 +8,7 @@ public class emotions_script : MonoBehaviour
     public float jumpScale;
     public LogicMenagerScript menagerScript;
     public bool playerAlive = true;
-    private float maxPositionFrameVerticle = 8.5f;
+    private float maxPositionFrameVerticle = 9;
 
     // Start is called before the first frame update
     void Start()

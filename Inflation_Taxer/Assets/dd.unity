@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Wall: {fileID: 346105941583568570, guid: e62fa2059b63f9a4592861f83f0d0a8c, type: 3}
+  cloud: {fileID: 5444494039363553821, guid: 4c0010555a4497b44b46825d1a6d6a16, type: 3}
   spawnRate: 3
   heightCalculator: 7
 --- !u!4 &291919396
