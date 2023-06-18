@@ -28,7 +28,6 @@ public class LogicMenagerScript : MonoBehaviour
     }
 
     [ContextMenu("gameOVer")]
-
     public void gameOver()
     {
         gameOverScreen.SetActive(true);
