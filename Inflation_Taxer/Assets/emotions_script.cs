@@ -5,16 +5,18 @@ using UnityEngine;
 public class emotions_script : MonoBehaviour
 {
     public Rigidbody2D rigidbody;
+    public SpriteRenderer spriteRenderer;
     public float jumpScale;
     public LogicMenagerScript menagerScript;
     public bool playerAlive = true;
     private float maxPositionFrameVerticle = 9;
+    private LevelControllerScript levelControllerScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        menagerScript = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicMenagerScript>();
 
+        InitalizeVariables();
     }
 
     // Update is called once per frame
@@ -41,6 +43,16 @@ public class emotions_script : MonoBehaviour
     {
         menagerScript.gameOver();
         playerAlive = false;
+    }
+
+    private void InitalizeVariables()
+    {
+        menagerScript = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicMenagerScript>();
+        levelControllerScript = new LevelControllerScript();
+
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = Resources.Load<Sprite>(levelControllerScript.ChangePlayersSprite());
     }
 
 }
