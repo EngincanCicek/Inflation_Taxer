@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class LevelControllerScript : MonoBehaviour
 {
-    public int levelCounter = 1;
-
-
-
+    public static int levelCounter = 1; // Singleton pattern will be using for this variable
 
 
 
