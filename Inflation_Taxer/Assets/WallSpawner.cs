@@ -7,7 +7,7 @@ public class WallSpawner : MonoBehaviour
     public GameObject Wall;
     public GameObject cloud;
     public float spawnRate = 3;
-    public float heightCalculator = 7;
+    public float heightCalculator = 6;
     private float timer = 0;
     private int cloudTimer = 0;
 
