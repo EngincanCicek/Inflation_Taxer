@@ -36,7 +36,8 @@ public class LogicMenagerScript : MonoBehaviour
         Debug.Log("TMP: " + scoreTextTMPro.text);
 
 
-        scoreTextTMPro.text= dollarValue.ToString() + "<sprite index=0>";
+        ScoreTextEditerBananaTMP();
+        IsNextLevel();
 
 
     }
@@ -59,6 +60,7 @@ public class LogicMenagerScript : MonoBehaviour
         dollarValue = levelControllerScript.HowMuchOneDollar();
         dollarDecreasingAmount = levelControllerScript.HowMuchDollarsDeclineAmount();
 
+        ScoreTextEditerBananaTMP();
         Debug.Log("DOLLARVALUE1: " + dollarValue);
 
     }
@@ -67,5 +69,17 @@ public class LogicMenagerScript : MonoBehaviour
         return Mathf.Round(number / toNearest) * toNearest;
     }
 
+    private void IsNextLevel()
+    {
+        if (dollarValue <= levelControllerScript.GiveMinDollarValueForLevel()) { // Current Level ended
+            LevelControllerScript.levelCounter += 1;
+            restartGame();
+        }
+    }
 
+    private void ScoreTextEditerBananaTMP()
+    {
+        scoreTextTMPro.text = dollarValue.ToString() + "<sprite index=0>";
+
+    }
 }

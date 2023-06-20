@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelControllerScript : MonoBehaviour
 {
     public static int levelCounter = 1; // Singleton pattern will be using for this variable
-
+    public static int maxLevel = 5; // Final Level
 
 
 
@@ -67,6 +67,25 @@ public class LevelControllerScript : MonoBehaviour
                 return currentName + "4";
             default:
                 return currentName;
+        }
+
+    }
+    public float GiveMinDollarValueForLevel()
+    {
+        switch (levelCounter)
+        {
+            case 1:
+                return 1;
+            case 2:
+                return 2;
+            case 3:
+                return 9.5f;
+            case 4:
+                return 25;
+            case 5:
+                return 9;
+            default:
+                return 1;
         }
 
     }
