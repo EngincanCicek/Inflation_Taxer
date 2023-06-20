@@ -40,8 +40,8 @@ public class WallSpawner : MonoBehaviour
 
     private void SpawnWall()
     {
-        float lowerPosition = transform.position.y - heightCalculator;
-        float upperPosition = transform.position.y + heightCalculator;
+        float lowerPosition = -5.35f;
+        float upperPosition = 6.7f;
         Instantiate(Wall, new Vector3(transform.position.x, Random.Range(lowerPosition, upperPosition), 0), transform.rotation);
     }
 

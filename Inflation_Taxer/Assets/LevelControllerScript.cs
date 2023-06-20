@@ -90,5 +90,38 @@ public class LevelControllerScript : MonoBehaviour
 
     }
 
+    public Coordinates GetCoordinateFromLevel()
+    {
+        switch (levelCounter)
+        {
+            case 1:
+                return new Coordinates(-0.14f, 0.67f, 3.25f);
+            case 2:
+                return new Coordinates(0.25f, 0.02f, 2.9f);
+            case 3:
+                return new Coordinates(0.22f, 0.18f, 2.9f);
+            case 4:
+                return new Coordinates(0.28f, 0.1f, 3.3f);
+            case 5:
+                return new Coordinates(0.1f, 0.43f, 3.25f);
+            default:
+                return new Coordinates(-0.14f, 0.67f, 3.25f);
+        }
 
+    }
+
+
+    public class Coordinates
+    {
+        public float X;
+        public float Y;
+        public float R; // radius
+
+        public Coordinates(float x, float y, float r)
+        {
+            X = x;
+            Y = y;
+            R = r;
+        }
+    }
 }

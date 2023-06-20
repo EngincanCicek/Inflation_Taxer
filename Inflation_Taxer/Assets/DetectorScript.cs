@@ -21,7 +21,7 @@ public class DetectorScript : MonoBehaviour
     {
         if (collision.gameObject.layer==3)
         {
-            menagerScript.incraseScore(1);
+            menagerScript.incraseScore(10);
         }
     }
 }

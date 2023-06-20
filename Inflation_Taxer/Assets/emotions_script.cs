@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static LevelControllerScript;
 
 public class emotions_script : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class emotions_script : MonoBehaviour
     public float jumpScale;
     public LogicMenagerScript menagerScript;
     public bool playerAlive = true;
+    public CircleCollider2D circleCollider;
     private float maxPositionFrameVerticle = 9;
     private LevelControllerScript levelControllerScript;
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +56,22 @@ public class emotions_script : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = Resources.Load<Sprite>(levelControllerScript.ChangePlayersSprite());
+        gameObject.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+
+
+        if (circleCollider != null)
+        {
+            Coordinates coordinates = levelControllerScript.GetCoordinateFromLevel();
+            circleCollider.offset = new Vector2(coordinates.X, coordinates.Y); // Koordinat
+
+            Debug.Log("COORDINATES: "+ coordinates.X+"  "+coordinates.Y+"   "+coordinates.R);
+
+            // Yarýçapý ayarla
+            circleCollider.radius = coordinates.R; // Radius
+        }
+
+
     }
+
 
 }
