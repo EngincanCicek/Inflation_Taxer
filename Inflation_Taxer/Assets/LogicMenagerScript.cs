@@ -13,6 +13,7 @@ public class LogicMenagerScript : MonoBehaviour
     public Text scoreText;
     public TextMeshProUGUI scoreTextTMPro;
     public GameObject gameOverScreen;
+    public MusicAndSoundScript soundNMusic;
     private LevelControllerScript levelControllerScript;
     private float dollarValue;
     private float dollarDecreasingAmount;
@@ -22,6 +23,7 @@ public class LogicMenagerScript : MonoBehaviour
     void Start()
     {
         InitalizeVariables();
+
     }
 
 
@@ -51,7 +53,8 @@ public class LogicMenagerScript : MonoBehaviour
     [ContextMenu("gameOVer")]
     public void gameOver()
     {
-        gameOverScreen.SetActive(true);
+        soundNMusic.MakeVisibleButton(true);
+        gameOverScreen.SetActive(true); 
     }
 
     private void InitalizeVariables()
