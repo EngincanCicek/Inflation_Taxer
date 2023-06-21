@@ -1371,7 +1371,8 @@ MonoBehaviour:
   menagerScript: {fileID: 2070138903}
   playerAlive: 1
   circleCollider: {fileID: 1627502758}
-  dustGroundPrefab: {fileID: 1876081050882714, guid: e5df5caad603c8349ba3481b8ded0927, type: 3}
+  dustGroundPrefab: {fileID: 1714681308540598, guid: 5cbc537826220e04592d5a41a0dd985f, type: 3}
+  hitEffectPrefab: {fileID: 1570927096764274, guid: 643639841fb531e4ba8097fed4eb9ac7, type: 3}
 --- !u!1 &1724973762
 GameObject:
   m_ObjectHideFlags: 0

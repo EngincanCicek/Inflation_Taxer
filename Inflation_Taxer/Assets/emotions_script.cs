@@ -12,6 +12,7 @@ public class emotions_script : MonoBehaviour
     public bool playerAlive = true;
     public CircleCollider2D circleCollider;
     public GameObject dustGroundPrefab;  // DustGround prefabini ekleyin
+    public GameObject hitEffectPrefab;  // HitEffect prefabini ekleyin
     private float maxPositionFrameVerticle = 9;
     private LevelControllerScript levelControllerScript;
 
@@ -44,6 +45,10 @@ public class emotions_script : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Vector3 hitPoint = collision.contacts[0].point;
+        GameObject hitEffect = Instantiate(hitEffectPrefab, hitPoint, Quaternion.identity);
+        Destroy(hitEffect, 0.3f);  
+
         startLevelEnd();
     }
 
