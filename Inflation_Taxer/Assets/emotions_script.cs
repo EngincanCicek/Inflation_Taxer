@@ -11,8 +11,10 @@ public class emotions_script : MonoBehaviour
     public LogicMenagerScript menagerScript;
     public bool playerAlive = true;
     public CircleCollider2D circleCollider;
-    public GameObject dustGroundPrefab;  // DustGround prefabini ekleyin
-    public GameObject hitEffectPrefab;  // HitEffect prefabini ekleyin
+    public GameObject dustGroundPrefab;  
+    public GameObject hitEffectPrefab;
+    public AudioClip jumpSound;  
+    public AudioSource audioSource;  
     private float maxPositionFrameVerticle = 9;
     private LevelControllerScript levelControllerScript;
 
@@ -32,6 +34,9 @@ public class emotions_script : MonoBehaviour
             rigidbody.velocity = Vector2.up * jumpScale;
             GameObject dustGround = Instantiate(dustGroundPrefab, spawnPosition, Quaternion.identity);
             Destroy(dustGround, 0.3f);
+
+            audioSource.PlayOneShot(jumpSound);  
+
 
 
         }
@@ -63,7 +68,6 @@ public class emotions_script : MonoBehaviour
         menagerScript = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicMenagerScript>();
         levelControllerScript = new LevelControllerScript();
 
-
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = Resources.Load<Sprite>(levelControllerScript.ChangePlayersSprite());
         gameObject.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
@@ -77,7 +81,7 @@ public class emotions_script : MonoBehaviour
             Debug.Log("COORDINATES: "+ coordinates.X+"  "+coordinates.Y+"   "+coordinates.R);
 
             // Yarýçapý ayarla
-            circleCollider.radius = coordinates.R; // Radius
+            circleCollider.radius = coordinates.R; // Radius 
         }
 
 
