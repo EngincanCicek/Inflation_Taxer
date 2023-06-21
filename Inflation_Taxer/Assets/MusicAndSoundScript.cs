@@ -30,7 +30,7 @@ public class MusicAndSoundScript : MonoBehaviour
             yield return new WaitForSeconds(1);
             audioSource.clip = music1;
             audioSource.Play();
-            yield return new WaitForSeconds(music1.length + 6);
+            yield return new WaitForSeconds(music1.length + 3);
 
             audioSource.clip = music2;
             audioSource.Play();
