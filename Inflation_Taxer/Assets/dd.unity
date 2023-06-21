@@ -1374,6 +1374,7 @@ MonoBehaviour:
   dustGroundPrefab: {fileID: 1714681308540598, guid: 5cbc537826220e04592d5a41a0dd985f, type: 3}
   hitEffectPrefab: {fileID: 1570927096764274, guid: 643639841fb531e4ba8097fed4eb9ac7, type: 3}
   jumpSound: {fileID: 8300000, guid: 39242525b66f21147800512ad9455ab6, type: 3}
+  hitSound: {fileID: 8300000, guid: b6de369b971788b4fbb52a80d609fc1c, type: 3}
   audioSource: {fileID: 1672844055}
 --- !u!1 &1672844054
 GameObject:

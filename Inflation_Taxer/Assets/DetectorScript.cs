@@ -8,7 +8,7 @@ public class DetectorScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        menagerScript = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicMenagerScript>();
+        menagerScript = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicMenagerScript>(); // its not necessary
     }
 
     // Update is called once per frame

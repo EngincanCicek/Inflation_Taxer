@@ -13,10 +13,12 @@ public class emotions_script : MonoBehaviour
     public CircleCollider2D circleCollider;
     public GameObject dustGroundPrefab;  
     public GameObject hitEffectPrefab;
-    public AudioClip jumpSound;  
+    public AudioClip jumpSound;
+    public AudioClip hitSound;
     public AudioSource audioSource;  
     private float maxPositionFrameVerticle = 9;
     private LevelControllerScript levelControllerScript;
+    private bool isItFirstHit = true;
 
 
     // Start is called before the first frame update
@@ -52,7 +54,14 @@ public class emotions_script : MonoBehaviour
     {
         Vector3 hitPoint = collision.contacts[0].point;
         GameObject hitEffect = Instantiate(hitEffectPrefab, hitPoint, Quaternion.identity);
-        Destroy(hitEffect, 0.3f);  
+        Destroy(hitEffect, 0.3f);
+
+        if (isItFirstHit)
+        {
+            audioSource.PlayOneShot(hitSound);
+            isItFirstHit =false;
+        }
+
 
         startLevelEnd();
     }
