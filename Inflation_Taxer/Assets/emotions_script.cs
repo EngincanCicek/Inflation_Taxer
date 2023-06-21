@@ -11,6 +11,7 @@ public class emotions_script : MonoBehaviour
     public LogicMenagerScript menagerScript;
     public bool playerAlive = true;
     public CircleCollider2D circleCollider;
+    public GameObject dustGroundPrefab;  // DustGround prefabini ekleyin
     private float maxPositionFrameVerticle = 9;
     private LevelControllerScript levelControllerScript;
 
@@ -26,7 +27,11 @@ public class emotions_script : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && playerAlive) {
+            Vector3 spawnPosition = transform.position + Vector3.down * (circleCollider.radius / 2);
             rigidbody.velocity = Vector2.up * jumpScale;
+            GameObject dustGround = Instantiate(dustGroundPrefab, spawnPosition, Quaternion.identity);
+            Destroy(dustGround, 0.3f);
+
 
         }
         if (transform.position.y > maxPositionFrameVerticle ||

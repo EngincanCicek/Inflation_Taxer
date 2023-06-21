@@ -1371,6 +1371,7 @@ MonoBehaviour:
   menagerScript: {fileID: 2070138903}
   playerAlive: 1
   circleCollider: {fileID: 1627502758}
+  dustGroundPrefab: {fileID: 1876081050882714, guid: e5df5caad603c8349ba3481b8ded0927, type: 3}
 --- !u!1 &1724973762
 GameObject:
   m_ObjectHideFlags: 0
