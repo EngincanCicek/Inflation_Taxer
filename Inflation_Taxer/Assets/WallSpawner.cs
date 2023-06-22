@@ -10,12 +10,15 @@ public class WallSpawner : MonoBehaviour
     public float heightCalculator = 6;
     private float timer = 0;
     private int cloudTimer = 0;
+    private LevelControllerScript levelControllerScript;
 
     // Start is called before the first frame update
     void Start()
     {
         SpawnWall();
         SpawnCloud();
+        levelControllerScript= new LevelControllerScript();
+        spawnRate -= (levelControllerScript.WhatIsDifficultyForEmojiNWallsNCloudSpeed() * 0.10f);
     }
 
     // Update is called once per frame

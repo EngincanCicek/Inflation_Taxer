@@ -110,6 +110,26 @@ public class LevelControllerScript : MonoBehaviour
 
     }
 
+    public float WhatIsDifficultyForEmojiNWallsNCloudSpeed()
+    {
+
+        switch (levelCounter)
+        {
+            case 1:
+                return 1;
+            case 2:
+                return 1.2f;
+            case 3:
+                return 1.3f;
+            case 4:
+                return 1.1f;
+            case 5:
+                return 1.5f;
+            default:
+                return 1;
+        }
+    }
+
 
     public class Coordinates
     {
