@@ -15,7 +15,9 @@ public class emotions_script : MonoBehaviour
     public GameObject hitEffectPrefab;
     public AudioClip jumpSound;
     public AudioClip hitSound;
-    public AudioSource audioSource;  
+    public AudioSource audioSource;
+    public GameObject menuText;
+    private bool isGameResume = true;
     private float maxPositionFrameVerticle = 9;
     private LevelControllerScript levelControllerScript;
     private bool isItFirstHit = true;
@@ -31,7 +33,7 @@ public class emotions_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && playerAlive) {
+        if (Input.GetKeyDown(KeyCode.Space) && playerAlive && isGameResume) {
             Vector3 spawnPosition = transform.position + Vector3.down * (circleCollider.radius / 2);
             rigidbody.velocity = Vector2.up * jumpScale;
             GameObject dustGround = Instantiate(dustGroundPrefab, spawnPosition, Quaternion.identity);
@@ -41,11 +43,33 @@ public class emotions_script : MonoBehaviour
 
 
 
+        }else if(Input.GetKeyDown(KeyCode.Space) && !isGameResume)
+        {
+            ResumeGame();
+
+        }else if (menagerScript.gameIsOver && Input.GetKeyDown(KeyCode.Space))
+        {
+            menagerScript.restartGame();
         }
+
         if (transform.position.y > maxPositionFrameVerticle ||
             transform.position.y < -maxPositionFrameVerticle) {
             startLevelEnd();
         }
+
+         if (Input.GetKeyDown(KeyCode.Escape) && playerAlive){
+            if (isGameResume)
+            {
+                PauseGame();
+            }
+            else
+            {
+                ResumeGame();
+
+            }
+
+        }
+
     }
 
 
@@ -93,7 +117,23 @@ public class emotions_script : MonoBehaviour
             circleCollider.radius = coordinates.R; // Radius 
         }
 
+        PauseGame();
 
+
+    }
+    void PauseGame()
+    {
+        Time.timeScale = 0f;
+        isGameResume = false;
+        menagerScript.GamePaused(); ;
+   
+    }
+
+    void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        isGameResume = true;
+        menagerScript.GameRunning();
     }
 
 

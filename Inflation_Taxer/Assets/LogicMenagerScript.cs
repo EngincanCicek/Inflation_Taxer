@@ -13,11 +13,12 @@ public class LogicMenagerScript : MonoBehaviour
     public Text scoreText;
     public TextMeshProUGUI scoreTextTMPro;
     public GameObject gameOverScreen;
+    public Text gameOverText;
     public MusicAndSoundScript soundNMusic;
     private LevelControllerScript levelControllerScript;
     private float dollarValue;
     private float dollarDecreasingAmount;
-
+    public bool gameIsOver { get; set; }
 
     // Start is called before the first frame updateg 
     void Start()
@@ -53,8 +54,27 @@ public class LogicMenagerScript : MonoBehaviour
     [ContextMenu("gameOVer")]
     public void gameOver()
     {
+        gameOverText.text = "GAME OVER";
         soundNMusic.MakeVisibleButton(true);
-        gameOverScreen.SetActive(true); 
+        gameOverScreen.SetActive(true);
+        gameIsOver = true;
+    }
+
+    [ContextMenu("gamePause")]
+    public void GamePaused()
+    {
+        gameOverText.text = "GAME PAUSED";
+        soundNMusic.MakeVisibleButton(true);
+        gameOverScreen.SetActive(true);
+
+    }
+
+    [ContextMenu("gameContiune")]
+    public void GameRunning()
+    {
+        soundNMusic.MakeVisibleButton(false);
+        gameOverScreen.SetActive(false);
+
     }
 
     private void InitalizeVariables()
@@ -84,5 +104,10 @@ public class LogicMenagerScript : MonoBehaviour
     {
         scoreTextTMPro.text = dollarValue.ToString() + "<sprite index=0>";
 
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
