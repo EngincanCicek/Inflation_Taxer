@@ -33,6 +33,9 @@ public class emotions_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
+
         if (Input.GetKeyDown(KeyCode.Space) && playerAlive && isGameResume) {
             Vector3 spawnPosition = transform.position + Vector3.down * (circleCollider.radius / 2);
             rigidbody.velocity = Vector2.up * jumpScale;
@@ -50,6 +53,35 @@ public class emotions_script : MonoBehaviour
         }else if (menagerScript.gameIsOver && Input.GetKeyDown(KeyCode.Space))
         {
             menagerScript.restartGame();
+        }else if (Input.GetKeyDown(KeyCode.F1)) // Down there CHEAT KEYS will be function, looks bad
+        {
+            LevelControllerScript.levelCounter = 1;
+            menagerScript.restartGame();
+
+        }
+        else if (Input.GetKeyDown(KeyCode.F2))
+        {
+            LevelControllerScript.levelCounter = 2;
+            menagerScript.restartGame();
+
+        }
+        else if (Input.GetKeyDown(KeyCode.F3))
+        {
+            LevelControllerScript.levelCounter = 3;
+            menagerScript.restartGame();
+
+        }
+        else if (Input.GetKeyDown(KeyCode.F4))
+        {
+            LevelControllerScript.levelCounter = 4;
+            menagerScript.restartGame();
+
+        }
+        else if (Input.GetKeyDown(KeyCode.F5))
+        {
+            LevelControllerScript.levelCounter = 5;
+            menagerScript.restartGame();
+
         }
 
         if (transform.position.y > maxPositionFrameVerticle ||

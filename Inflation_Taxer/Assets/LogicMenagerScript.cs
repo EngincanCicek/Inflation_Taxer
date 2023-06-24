@@ -14,6 +14,7 @@ public class LogicMenagerScript : MonoBehaviour
     public TextMeshProUGUI scoreTextTMPro;
     public GameObject gameOverScreen;
     public Text gameOverText;
+    public Text popupText;
     public MusicAndSoundScript soundNMusic;
     private LevelControllerScript levelControllerScript;
     private float dollarValue;
@@ -24,6 +25,7 @@ public class LogicMenagerScript : MonoBehaviour
     void Start()
     {
         InitalizeVariables();
+        ChangePopUpText();
 
     }
 
@@ -55,6 +57,7 @@ public class LogicMenagerScript : MonoBehaviour
     public void gameOver()
     {
         gameOverText.text = "GAME OVER";
+
         soundNMusic.MakeVisibleButton(true);
         gameOverScreen.SetActive(true);
         gameIsOver = true;
@@ -109,5 +112,10 @@ public class LogicMenagerScript : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    private void ChangePopUpText()
+    {
+        popupText.text = "You have to make dollars " + levelControllerScript.GiveMinDollarValueForLevel()+ " Banana";
     }
 }
