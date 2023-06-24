@@ -82,6 +82,9 @@ public class emotions_script : MonoBehaviour
             LevelControllerScript.levelCounter = 5;
             menagerScript.restartGame();
 
+        }else if (Input.GetKeyDown(KeyCode.F12)) // ending score cheat
+        {
+            menagerScript.ChangeDollarValueForCheat();
         }
 
         if (transform.position.y > maxPositionFrameVerticle ||

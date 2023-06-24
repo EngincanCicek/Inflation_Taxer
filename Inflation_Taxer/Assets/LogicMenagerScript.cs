@@ -16,6 +16,9 @@ public class LogicMenagerScript : MonoBehaviour
     public Text gameOverText;
     public Text popupText;
     public MusicAndSoundScript soundNMusic;
+    public GameObject canvaEnding;
+    public GameObject canva;
+    public GameObject wallSpawner;
     private LevelControllerScript levelControllerScript;
     private float dollarValue;
     private float dollarDecreasingAmount;
@@ -56,11 +59,14 @@ public class LogicMenagerScript : MonoBehaviour
     [ContextMenu("gameOVer")]
     public void gameOver()
     {
-        gameOverText.text = "GAME OVER";
+        
+            gameOverText.text = "GAME OVER";
 
-        soundNMusic.MakeVisibleButton(true);
-        gameOverScreen.SetActive(true);
-        gameIsOver = true;
+            soundNMusic.MakeVisibleButton(true);
+            gameOverScreen.SetActive(true);
+            gameIsOver = true;
+        
+
     }
 
     [ContextMenu("gamePause")]
@@ -69,6 +75,7 @@ public class LogicMenagerScript : MonoBehaviour
         gameOverText.text = "GAME PAUSED";
         soundNMusic.MakeVisibleButton(true);
         gameOverScreen.SetActive(true);
+        ChangePopUpText();
 
     }
 
@@ -98,8 +105,21 @@ public class LogicMenagerScript : MonoBehaviour
     private void IsNextLevel()
     {
         if (dollarValue <= levelControllerScript.GiveMinDollarValueForLevel()) { // Current Level ended
-            LevelControllerScript.levelCounter += 1;
-            restartGame();
+            if (LevelControllerScript.levelCounter == LevelControllerScript.maxLevel)
+            {
+                canvaEnding.SetActive(true);
+                canva.SetActive(false);
+                wallSpawner.SetActive(false);
+
+
+            }
+            else
+            {
+                LevelControllerScript.levelCounter += 1;
+                restartGame();
+            }
+
+
         }
     }
 
@@ -117,5 +137,10 @@ public class LogicMenagerScript : MonoBehaviour
     private void ChangePopUpText()
     {
         popupText.text = "You have to make dollars " + levelControllerScript.GiveMinDollarValueForLevel()+ " Banana";
+    }
+
+    public void ChangeDollarValueForCheat()
+    {
+        dollarValue = 0;
     }
 }

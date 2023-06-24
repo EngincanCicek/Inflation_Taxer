@@ -124,7 +124,7 @@ public class LevelControllerScript : MonoBehaviour
             case 4:
                 return 1.1f;
             case 5:
-                return 1.5f;
+                return 1.3f;
             default:
                 return 1;
         }
