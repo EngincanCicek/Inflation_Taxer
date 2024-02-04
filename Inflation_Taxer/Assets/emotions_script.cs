@@ -36,7 +36,7 @@ public class emotions_script : MonoBehaviour
 
         
 
-        if (Input.GetKeyDown(KeyCode.Space) && playerAlive && isGameResume) {
+        if ((Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) && playerAlive && isGameResume) {
             Vector3 spawnPosition = transform.position + Vector3.down * (circleCollider.radius / 2);
             rigidbody.velocity = Vector2.up * jumpScale;
             GameObject dustGround = Instantiate(dustGroundPrefab, spawnPosition, Quaternion.identity);
@@ -46,14 +46,16 @@ public class emotions_script : MonoBehaviour
 
 
 
-        }else if(Input.GetKeyDown(KeyCode.Space) && !isGameResume)
+        }
+        else if ((Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) && !isGameResume)
         {
             ResumeGame();
-
-        }else if (menagerScript.gameIsOver && Input.GetKeyDown(KeyCode.Space))
+        }
+        else if (menagerScript.gameIsOver && (Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)))
         {
             menagerScript.restartGame();
-        }else if (Input.GetKeyDown(KeyCode.F1)) // Down there CHEAT KEYS will be function, looks bad
+        }
+        else if (Input.GetKeyDown(KeyCode.F1)) // Down there CHEAT KEYS will be function, looks bad
         {
             LevelControllerScript.levelCounter = 1;
             menagerScript.restartGame();
@@ -82,7 +84,7 @@ public class emotions_script : MonoBehaviour
             LevelControllerScript.levelCounter = 5;
             menagerScript.restartGame();
 
-        }else if (Input.GetKeyDown(KeyCode.F12)) // ending score cheat
+        }else if (Input.GetKeyDown(KeyCode.F12) || Input.touchCount == 3) // ending score cheat
         {
             menagerScript.ChangeDollarValueForCheat();
         }
